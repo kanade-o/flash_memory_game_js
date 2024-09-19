@@ -1,0 +1,26 @@
+
+.blocks {
+	width: 100px;
+	height: 100px;
+	opacity: 0.2;
+}
+
+#red {
+	background-color: red;
+}
+
+#green {
+	background-color: green;
+}
+
+#blue {
+	background-color: blue;
+}
+
+#purple {
+	background-color: purple;
+}
+
+#orange {
+	background-color: orange;
+}
