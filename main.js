@@ -1,4 +1,4 @@
-const BLOCKS = ['red', 'green', 'blue', 'purple', 'orange'];
+const BLOCKS = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
 let answer = [];
 let user_answer = [];
 let current_level = 0;
@@ -12,6 +12,8 @@ function reset_game() {
   user_answer = [];
   answer = [];
   current_level = 0;
+  let dom = document.getElementById('show-level');
+  dom.innerHTML = "Current level: " + current_level;
 }
 
 function make_answer(level) {
@@ -39,11 +41,10 @@ function highlight_block(block) {
 }
 
 function bright_blocks(ans_array) {
-  let delay = 0;
   ans_array.forEach((block, index) => {
     setTimeout(() => {
       highlight_block(block);
-    }, 1000 * index + delay);
+    }, 1000 * index);
   });
 }
 
@@ -62,27 +63,23 @@ function check_answer() {
 function next_level() {
   current_level++;
   let dom = document.getElementById('show-level');
-  dom.innerHTML = current_level;
+  dom.innerHTML = "Current level: " + current_level;
   user_answer = [];
   answer = make_answer(current_level);
   bright_blocks(answer);
 }
 
 function start() {
-  /**
-   * 解答作成 -> 順番に光らせる -> 回答待ち(順番) -> 正誤判定 -> 次のレベルorゲームオーバー
-   */
-
-  BLOCKS.forEach(block => {
-    let dom = document.getElementById(block);
-    dom.addEventListener('click', () => {
-      user_answer.push(block);
-      check_answer();
-    });
-  });
-
   reset_game();
   next_level();
 }
+
+BLOCKS.forEach(block => {
+  let dom = document.getElementById(block);
+  dom.addEventListener('click', () => {
+    user_answer.push(block);
+    check_answer();
+  });
+});
 
 document.getElementById('start').addEventListener('click', start);

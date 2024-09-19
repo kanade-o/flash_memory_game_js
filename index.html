@@ -6,31 +6,43 @@
   <title>アドプロ JavaScript 自由制作</title>
 </head>
 <body>
-<header>1S 6番 大沼奏太</header>
-<!-- <h1>作品の題名</h1>
-<ul>
-<li>作品の説明：...目的，操作方法，等
-<li>工夫・苦心事項：...
-<li>...
-</ul> -->
+<header>1S No.6 Sota Ohnuma</header>
+<H1>Flash Memory Game</H1>
+
 <div id="canvas">
-  <center>
-  <div id="show-level">0</div>
-  <div id="red" class="blocks" ></div>
-  <br>
-  <div id="green" class="blocks" ></div>
-  <br>
-  <div id="purple" class="blocks" ></div>
-  <br>
-  <div id="blue" class="blocks" ></div>
-  <br>
-  <div id="orange" class="blocks" ></div>
-  <br>
+  <div id="show-level">Current level: 0</div>
+  <div id="block-container">
+    <div id="red" class="blocks" ></div>
+    <div id="green" class="blocks" ></div>
+    <div id="blue" class="blocks" ></div>
+    <div id="yellow" class="blocks" ></div>
+    <div id="purple" class="blocks" ></div>
+    <div id="orange" class="blocks" ></div>
+  </div>
   <button id="start">GAME START</button>
-  </center>
 </div>
+
+<div id="desc">
+  <details>
+    <summary>Description</summary>
+      <p>概要: 光ったブロックの順番にクリックしていくゲームです.</p>
+      <p>操作方法: GAME STARTでスタート. ブロックにカーソルを合わせてクリック.</p>
+    <h2>#工夫事項</h2>
+    <ul>
+      <li>setTimeoutを用いて, ブロックの光る時間を調整した.</li>
+      <li>CSSでhoverやtransaction, ブロックの配置をgridを使って見た目に拘った.</li>
+      <li>配列を使ったり, html部分ではなくjs側で動きを加えることで可読性を向上させた.</li>
+    </ul>
+    <h2>#苦心事項</h2>
+    <ul>
+      <li>クリックしたら配列に入れて, 答え合わせをするという流れで混乱した.</li>
+      <li>DOMが正しく取得されないときがあったが, htmlに書くscriptの位置を変えることで解決した.</li>
+    </ul>
+  </details>
+</div>
+
 <script src="main.js"></script>
-<!-- <footer>© 2024, s240706@kushiro.kosen-ac.jp</footer> -->
+<footer>© 2024, s240706@kushiro.kosen-ac.jp</footer>
 </body>
 </html>
 
